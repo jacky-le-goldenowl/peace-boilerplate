@@ -5,23 +5,23 @@
 # This script is idempotent, so that you can run it at any time and get an expectable outcome.
 # Add necessary setup steps to this method.
 def setup!
-  env ".env", from: ".env.sample"
-  run "bundle install" if bundle_needed?
-  run "overcommit --install" if overcommit_installable?
-  run "bin/rails db:prepare" if database_present?
-  run "yarn install --check-files" if yarn_needed?
-  run "bin/rails tmp:create" if tmp_missing?
-  run "bin/rails restart"
+  env '.env', from: '.env.sample'
+  run 'bundle install' if bundle_needed?
+  run 'overcommit --install' if overcommit_installable?
+  run 'bin/rails db:prepare' if database_present?
+  run 'yarn install --check-files' if yarn_needed?
+  run 'bin/rails tmp:create' if tmp_missing?
+  run 'bin/rails restart'
 
   if git_safe_needed?
     say_status :notice,
-      "Remember to run #{colorize("mkdir -p .git/safe", :yellow)} to trust the binstubs in this project",
+      "Remember to run #{colorize('mkdir -p .git/safe', :yellow)} to trust the binstubs in this project",
       :magenta
   end
 
   say_status :Ready!,
-    "Use #{colorize("bin/dev", :yellow)} to start the app, " \
-    "or #{colorize("bin/rake", :yellow)} to run tests"
+    "Use #{colorize('bin/dev', :yellow)} to start the app, " \
+    "or #{colorize('bin/rake', :yellow)} to run tests"
 end
 
 def run(command, echo: true, silent: false, exception: true)
@@ -37,27 +37,27 @@ def run?(command)
 end
 
 def bundle_needed?
-  !run("bundle check", silent: true, exception: false)
+  !run('bundle check', silent: true, exception: false)
 end
 
 def overcommit_installable?
-  File.exist?(".overcommit.yml") && !File.exist?(".git/hooks/overcommit-hook") && run?("overcommit -v")
+  File.exist?('.overcommit.yml') && !File.exist?('.git/hooks/overcommit-hook') && run?('overcommit -v')
 end
 
 def database_present?
-  File.exist?("config/database.yml")
+  File.exist?('config/database.yml')
 end
 
 def yarn_needed?
-  File.exist?("yarn.lock")
+  File.exist?('yarn.lock')
 end
 
 def tmp_missing?
-  !Dir.exist?("tmp/pids")
+  !Dir.exist?('tmp/pids')
 end
 
 def git_safe_needed?
-  ENV["PATH"].include?(".git/safe/../../bin") && !Dir.exist?(".git/safe")
+  ENV['PATH'].include?('.git/safe/../../bin') && !Dir.exist?('.git/safe')
 end
 
 def with_original_bundler_env(&)
@@ -71,7 +71,7 @@ def env(env_file, from:)
 
   unless File.exist?(env_file)
     say_status(:copy, "#{from} → #{env_file}", :magenta)
-    require "fileutils"
+    require 'fileutils'
     FileUtils.cp(from, env_file)
   end
 
@@ -80,12 +80,12 @@ def env(env_file, from:)
   missing = keys[from] - keys[env_file]
   return if missing.empty?
 
-  say_status(:WARNING, "Your #{env_file} file is missing #{missing.join(", ")}. Refer to #{from} for details.", :red)
+  say_status(:WARNING, "Your #{env_file} file is missing #{missing.join(', ')}. Refer to #{from} for details.", :red)
 end
 
 def say_status(label, message, color = :green)
   label = label.to_s.rjust(12)
-  puts [colorize(label, color), message.gsub(/^/, " " * 13).strip].join(" ")
+  puts [colorize(label, color), message.gsub(/^/, ' ' * 13).strip].join(' ')
 end
 
 def colorize(str, color)
@@ -96,13 +96,13 @@ def colorize(str, color)
 end
 
 def color_supported?
-  if ENV["TERM"] == "dumb" || !ENV["NO_COLOR"].to_s.empty?
+  if ENV['TERM'] == 'dumb' || !ENV['NO_COLOR'].to_s.empty?
     false
   else
     [$stdout, $stderr].all? { |io| io.respond_to?(:tty?) && io.tty? }
   end
 end
 
-Dir.chdir(File.expand_path("..", __dir__)) do
+Dir.chdir(File.expand_path('..', __dir__)) do
   setup!
 end
