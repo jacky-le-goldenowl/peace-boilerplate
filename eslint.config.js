@@ -30,8 +30,7 @@ export default [
     },
     languageOptions: {
       globals: {
-        browser: true,
-        node: true,
+        ...globals.browser,
       },
     },
   },
