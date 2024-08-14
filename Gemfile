@@ -24,6 +24,7 @@ end
 group :development do
   gem 'annotate'
   gem 'bundler-audit', require: false
+  gem 'lefthook'
   gem 'letter_opener'
   gem 'pgcli-rails'
   gem 'rubocop', require: false

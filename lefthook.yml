@@ -1,0 +1,30 @@
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: ruby .hooks/lint_commit_msg.rb
+
+pre-commit:
+  parallel: true
+  commands:
+    server-lint:
+      root: "app/"
+      glob: "*.rb"
+      run: bundle exec rubocop -A --force-exclusion {staged_files}
+      stage_fixed: true
+    client-js-lint:
+      root: "app/"
+      glob: "*.{ts,tsx,js,jsx}"
+      run: yarn fix:js {staged_files}
+      stage_fixed: true
+    client-css-lint:
+      root: "app/"
+      glob: "*.{css,scss}"
+      run: yarn fix:css {staged_files}
+      stage_fixed: true
+
+pre-push:
+  commands:
+    client-tests:
+      root: "client/"
+      glob: "*.{ts,tsx}"
+      run: yarn test
