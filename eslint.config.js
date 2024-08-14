@@ -28,8 +28,11 @@ export default [
       "no-var": "error",
       "prettier/prettier": "error",
     },
-    env: {
-      node: true,
+    languageOptions: {
+      globals: {
+        browser: true,
+        node: true,
+      },
     },
   },
 ];
