@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'bootsnap', require: false
+gem 'dry-initializer', '~> 3.1'
 gem 'good_migrations'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
@@ -11,6 +12,8 @@ gem 'redis', '>= 4.0.1'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'view_component', '~> 3.13'
+gem 'view_component-contrib', '~> 0.2.3'
 gem 'vite_rails', '~> 3.0'
 
 group :development, :test do
