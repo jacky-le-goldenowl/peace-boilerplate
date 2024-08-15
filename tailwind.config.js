@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./app/helpers/**/*.rb",
     "./app/frontend/**/*.js",
+    "./app/frontend/**/*.{css,scss}",
     "./app/views/**/*",
   ],
   theme: {
@@ -47,5 +48,5 @@ module.exports = {
       },
     },
   },
-  plugins: { daisyui: {} },
+  plugins: ["tailwindcss ,autoprefixer, daisyui"],
 };

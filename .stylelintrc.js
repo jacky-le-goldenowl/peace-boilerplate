@@ -50,5 +50,17 @@ export default {
     "selector-max-id": 0,
     "selector-no-qualifying-type": true,
     "shorthand-property-no-redundant-values": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: [
+          "tailwind",
+          "apply",
+          "variants",
+          "responsive",
+          "screen",
+        ],
+      },
+    ],
   },
 };
