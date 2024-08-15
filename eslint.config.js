@@ -28,10 +28,5 @@ export default [
       "no-var": "error",
       "prettier/prettier": "error",
     },
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-    },
   },
 ];
