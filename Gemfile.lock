@@ -288,7 +288,8 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     useragent (0.16.10)
-    vcr (6.2.0)
+    vcr (6.3.1)
+      base64
     vite_rails (3.0.17)
       railties (>= 5.1, < 8)
       vite_ruby (~> 3.0, >= 3.2.2)
