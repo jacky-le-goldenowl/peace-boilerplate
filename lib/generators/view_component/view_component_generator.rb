@@ -24,12 +24,12 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
     template 'component_spec.rb', File.join('spec/frontend/components', class_path, "#{file_name}_spec.rb")
   end
 
-  def create_system_test_file
-    return if options[:skip_system_test]
+  # def create_system_test_file
+  #   return if options[:skip_system_test]
 
-    template 'component_system_spec.rb',
-      File.join('spec/system/frontend/components', class_path, "#{file_name}_spec.rb")
-  end
+  #   template 'component_system_spec.rb',
+  #     File.join('spec/system/frontend/components', class_path, "#{file_name}_spec.rb")
+  # end
 
   def create_preview_file
     return if options[:skip_preview]
