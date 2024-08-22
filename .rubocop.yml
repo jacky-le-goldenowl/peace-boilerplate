@@ -11,8 +11,6 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   NewCops: enable
-  Include:
-    - .tomo/**/*.rb
   Exclude:
     # ignore bin/* except for bin/setup
     - !ruby/regexp /<%= Regexp.quote(File.expand_path("bin", __dir__)) %>\/(?!setup).*/
@@ -69,10 +67,6 @@ Layout/MultilineMethodCallIndentation:
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-  EnforcedStyleForEmptyBraces: no_space
-
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
@@ -121,10 +115,6 @@ Metrics/PerceivedComplexity:
   Max: 8
   Exclude:
     - bin/setup
-
-Naming/FileName:
-  Exclude:
-    - .tomo/plugins/*.rb
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false

@@ -1,52 +1,19 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
-    "./app/helpers/**/*.rb",
-    "./app/frontend/**/*.js",
-    "./app/frontend/**/*.{css,scss}",
-    "./app/views/**/*",
+    "app/helpers/**/*.rb",
+    "app/views/**/*.{html,html.erb,erb,js,ts,rb,slim,html.slim}",
+    "app/frontend/**/*.{js,jsx,ts,tsx,vue}",
+    "app/frontend/**/**/*.{js,jsx,ts,tsx,vue}",
+    "app/frontend/entrypoints/*.js",
+    "app/frontend/stylesheets/*.scss",
+    "app/frontend/images/icons/*.svg",
+    "app/frontend/components/**/**/*.{rb,slim,html.slim,js,scss}",
   ],
   theme: {
-    fontFamily: {
-      sans: [
-        "BlinkMacSystemFont",
-        "Avenir Next",
-        "Avenir",
-        "Nimbus Sans L",
-        "Roboto",
-        "Noto Sans",
-        "Segoe UI",
-        "Arial",
-        "Helvetica",
-        "Helvetica Neue",
-        "sans-serif",
-      ],
-      mono: [
-        "Consolas",
-        "Menlo",
-        "Monaco",
-        "Andale Mono",
-        "Ubuntu Mono",
-        "monospace",
-      ],
-    },
-    extend: {
-      colors: {
-        primary: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
-          950: "#172554",
-        },
-      },
-    },
+    extend: {},
   },
-  plugins: ["tailwindcss ,autoprefixer, daisyui"],
+  plugins: [require("daisyui")],
 };
