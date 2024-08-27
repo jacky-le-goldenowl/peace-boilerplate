@@ -9,7 +9,7 @@ class Alert::Component < ApplicationViewComponent
     error: 'alert-error'
   }.freeze
 
-  option :text, default: proc { 'Hello!' }
+  param :text, default: proc { 'Hello!' }
   option :type, default: proc { 'info' }
   option :timer, default: proc { 5000 } # 5 seconds
 

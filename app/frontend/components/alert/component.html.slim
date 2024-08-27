@@ -1,4 +1,4 @@
-.alert[role="alert" class=alert_type data-controller="alert--component"]
+.alert[role="alert" class="#{alert_type} #{attributes[:class]}" data-controller="alert--component"]
   = vite_image_tag("images/icons/#{alert_icon}", class: "")
   span
     = text

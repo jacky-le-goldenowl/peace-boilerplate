@@ -16,6 +16,7 @@ gem 'vite_rails', '~> 3.0'
 gem 'slim-rails', '~> 3.6', '>= 3.6.3'
 
 gem 'dry-initializer', '~> 3.1'
+gem 'dry-types', '~> 1.7', '>= 1.7.2'
 gem 'view_component', '~> 3.13'
 gem 'view_component-contrib', '~> 0.2.3'
 

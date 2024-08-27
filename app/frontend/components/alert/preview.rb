@@ -11,6 +11,6 @@ class Alert::Preview < ApplicationViewComponentPreview
   # @param text [String]
   # @param type [String]
   def custom(text: 'Hello!', type: 'error', timer: 3000)
-    component('alert', text:, type:, timer:)
+    component('alert', text, type:, timer:)
   end
 end
