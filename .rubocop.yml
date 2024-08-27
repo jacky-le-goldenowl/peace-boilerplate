@@ -110,6 +110,8 @@ Metrics/ModuleLength:
 
 Metrics/ParameterLists:
   Max: 6
+  Exclude:
+    - app/frontend/components/**/preview.rb
 
 Metrics/PerceivedComplexity:
   Max: 8
