@@ -39,6 +39,8 @@ group :development do
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', '>= 2.22.0', require: false
+  gem 'ruby-lsp'
+  gem 'ruby-lsp-rails'
   gem 'web-console'
 end
 
