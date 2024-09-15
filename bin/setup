@@ -27,7 +27,7 @@ end
 def run(command, echo: true, silent: false, exception: true)
   say_status(:run, command, :blue) if echo
   with_original_bundler_env do
-    options = silent ? {out: File::NULL, err: File::NULL} : {}
+    options = silent ? { out: File::NULL, err: File::NULL } : {}
     system(command, exception:, **options)
   end
 end
@@ -91,7 +91,7 @@ end
 def colorize(str, color)
   return str unless color_supported?
 
-  code = {red: 31, green: 32, yellow: 33, blue: 34, magenta: 35}.fetch(color)
+  code = { red: 31, green: 32, yellow: 33, blue: 34, magenta: 35 }.fetch(color)
   "\e[0;#{code};49m#{str}\e[0m"
 end
 

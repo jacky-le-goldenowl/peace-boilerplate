@@ -13,6 +13,13 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'vite_rails', '~> 3.0'
 
+gem 'slim-rails', '~> 3.6', '>= 3.6.3'
+
+gem 'dry-initializer', '~> 3.1'
+gem 'dry-types', '~> 1.7', '>= 1.7.2'
+gem 'view_component', '~> 3.13'
+gem 'view_component-contrib', '~> 0.2.3'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
@@ -26,15 +33,19 @@ group :development do
   gem 'bundler-audit', require: false
   gem 'lefthook'
   gem 'letter_opener'
+  gem 'lookbook'
   gem 'pgcli-rails'
   gem 'rubocop', require: false
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', '>= 2.22.0', require: false
+  gem 'ruby-lsp'
+  gem 'ruby-lsp-rails'
   gem 'web-console'
 end
 
 group :test do
+  gem 'capybara'
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'

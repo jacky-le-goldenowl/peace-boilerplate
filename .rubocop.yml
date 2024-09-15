@@ -11,8 +11,6 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   NewCops: enable
-  Include:
-    - .tomo/**/*.rb
   Exclude:
     # ignore bin/* except for bin/setup
     - !ruby/regexp /<%= Regexp.quote(File.expand_path("bin", __dir__)) %>\/(?!setup).*/
@@ -69,10 +67,6 @@ Layout/MultilineMethodCallIndentation:
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-  EnforcedStyleForEmptyBraces: no_space
-
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
@@ -116,15 +110,13 @@ Metrics/ModuleLength:
 
 Metrics/ParameterLists:
   Max: 6
+  Exclude:
+    - app/frontend/components/**/preview.rb
 
 Metrics/PerceivedComplexity:
   Max: 8
   Exclude:
     - bin/setup
-
-Naming/FileName:
-  Exclude:
-    - .tomo/plugins/*.rb
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false
@@ -136,55 +128,31 @@ Rails/ApplicationRecord:
   Exclude:
     - db/migrate/**
 
-Rails/BulkChangeTable:
+Bundler/OrderedGems:
   Enabled: false
 
-Rails/DefaultScope:
-  Enabled: true
+Layout/ParameterAlignment:
+  EnforcedStyle: with_first_parameter
 
-Rails/Delegate:
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - db/migrate/*.rb
+
+Lint/MissingSuper:
+  Exclude:
+    - app/services/**/*
+
+Lint/UselessAccessModifier:
   Enabled: false
 
-Rails/EnvironmentVariableAccess:
+Style/AndOr:
   Enabled: false
 
-Rails/HasAndBelongsToMany:
-  Enabled: false
-
-Rails/HttpStatus:
-  Enabled: false
-
-Rails/I18nLocaleTexts:
-  Enabled: false
-
-Rails/Inquiry:
-  Enabled: false
-
-Rails/LinkToBlank:
-  Enabled: false
-
-Rails/NotNullColumn:
-  Enabled: false
-
-Rails/RakeEnvironment:
-  Enabled: false
-
-Rails/RefuteMethods:
-  Enabled: false
-
-Rails/RequireDependency:
-  Enabled: true
-
-Rails/RootPathnameMethods:
-  Enabled: false
-
-Rails/SkipsModelValidations:
-  Enabled: false
-
-Rails/Validation:
-  Enabled: false
-
-Style/Alias:
+Style/ArgumentsForwarding:
   Enabled: false
 
 Style/AsciiComments:
@@ -196,17 +164,18 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Enabled: false
 
-Style/DoubleNegation:
+Style/FetchEnvVar:
   Enabled: false
 
-Style/EmptyMethod:
-  EnforcedStyle: expanded
-
-Style/FetchEnvVar:
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/FormatStringToken:
   Enabled: false
+
+Style/GlobalStdStream:
+  Exclude:
+    - config/**/*
 
 Style/GuardClause:
   Enabled: false
@@ -214,29 +183,73 @@ Style/GuardClause:
 Style/IfUnlessModifier:
   Enabled: false
 
-Style/ModuleFunction:
+Style/MutableConstant:
+  Enabled: true
+
+Style/RedundantFetchBlock:
   Enabled: false
 
-Style/NumericPredicate:
+Style/RedundantRegexpArgument:
   Enabled: false
 
-Style/PerlBackrefs:
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
+Style/SingleLineBlockParams:
   Enabled: false
 
-Style/RescueStandardError:
-  EnforcedStyle: implicit
+Style/HashEachMethods:
+  Enabled: false
 
-Style/SingleLineMethods:
-  AllowIfMethodIsEmpty: false
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either
 
-Style/StringConcatenation:
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/NumericLiterals:
+  MinDigits: 7
+
+Style/WordArray:
+  Enabled: false
+
+Style/RegexpLiteral:
   Enabled: false
 
 Style/SymbolArray:
   Enabled: false
 
-Style/TrivialAccessors:
-  AllowPredicates: true
+Metrics/AbcSize:
+  Max: 30
 
-Style/YodaExpression:
+Metrics/BlockNesting:
+  Max: 4
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - spec/**/*
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/ModuleLength:
+  Max: 250
+
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+    - db/migrate/*.rb
+    - app/services/import/staffs.rb
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Naming/BlockForwarding:
   Enabled: false

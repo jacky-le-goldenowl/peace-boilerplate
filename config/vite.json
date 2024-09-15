@@ -1,7 +1,8 @@
 {
   "all": {
     "sourceCodeDir": "app/frontend",
-    "watchAdditionalPaths": []
+    "watchAdditionalPaths": ["app/components", "app/frontend/components"],
+    "additionalEntryPoints": ["app/frontend/images/**/*"]
   },
   "development": {
     "autoBuild": true,
