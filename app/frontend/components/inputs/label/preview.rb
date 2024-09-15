@@ -5,5 +5,6 @@ class Inputs::Label::Preview < ApplicationViewComponentPreview
   # self.container_class = "w-1/2 border border-gray-300"
 
   def default
+    component('Inputs::Label', text: 'Hello!')
   end
 end
