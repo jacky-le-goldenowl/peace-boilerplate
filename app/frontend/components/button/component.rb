@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
-
 class Button::Component < ApplicationViewComponent
   param :text, default: proc {}
   option :url, optional: true
@@ -78,5 +76,3 @@ class Button::Component < ApplicationViewComponent
     new_tab ? '_blank' : nil
   end
 end
-
-# rubocop:enable Metrics/BlockLength
