@@ -7,7 +7,7 @@ class ApplicationViewComponent < ViewComponentContrib::Base
   include ViewComponentContrib::StyleVariants
 
   attr_accessor :allow_db_queries, :attributes
-  alias_method :allow_db_queries?, :allow_db_queries
+  alias allow_db_queries? allow_db_queries
 
   # Move default attrs to a constants so we can re-use it
   EMPTY_ATTRS = {}.freeze

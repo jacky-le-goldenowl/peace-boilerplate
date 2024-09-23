@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     mount Lookbook::Engine, at: '/lookbook'
   end
 
+  devise_for :users
+
   root 'home#index'
   get 'up' => 'rails/health#show', as: :rails_health_check
 end
