@@ -1,3 +1,5 @@
+# Move to the new Repo, please check out at: [Golden Owl Repo](https://github.com/GoldenOwlAsia/rails-view-template)
+--------------
 # peace_boilerplate
 
 This is a Rails 7.2 app.
